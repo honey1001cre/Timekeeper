@@ -65,34 +65,19 @@ export const VisualTimer = ({
     };
 
     return (
-        <div className="relative w-full aspect-square max-w-[650px] mx-auto">
+        <div className="relative w-full aspect-square max-w-[350px] md:max-w-[650px] mx-auto">
             <ResponsiveContainer width="100%" height="100%">
-                <PieChart margin={{ top: 20, right: 100, bottom: 20, left: 100 }}>
+                <PieChart margin={{ top: 10, right: 10, bottom: 10, left: 10 }}>
                     <Pie
                         data={data}
                         cx="50%"
                         cy="50%"
                         innerRadius="70%"
                         outerRadius="95%"
-                        paddingAngle={5}
+                        paddingAngle={3}
                         isAnimationActive={!isRunning || !isToday}
                         stroke="none"
-                        labelLine={{ stroke: 'rgba(255, 255, 255, 0.2)', strokeWidth: 1 }}
-                        label={({ name, value, x, y, textAnchor }) => {
-                            if (name === 'No Data') return null;
-                            return (
-                                <text
-                                    x={x}
-                                    y={y}
-                                    fill="white"
-                                    textAnchor={textAnchor}
-                                    className="text-[10px] font-bold tracking-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"
-                                >
-                                    <tspan x={x} dy="-0.2em" fillOpacity={0.7}>{name}</tspan>
-                                    <tspan x={x} dy="1.2em" fillOpacity={0.4} className="font-mono">{formatDisplayTime(value)}</tspan>
-                                </text>
-                            );
-                        }}
+                        label={false}
                     >
                         {data.map((entry, index) => (
                             <Cell
@@ -108,8 +93,8 @@ export const VisualTimer = ({
                                     <g>
                                         <text
                                             x={cx}
-                                            y={cy - 15}
-                                            className="fill-white text-5xl font-black font-mono tracking-tighter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                                            y={cy - 10}
+                                            className="fill-white text-3xl md:text-5xl font-black font-mono tracking-tighter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
                                             textAnchor="middle"
                                             dominantBaseline="central"
                                         >
@@ -117,8 +102,8 @@ export const VisualTimer = ({
                                         </text>
                                         <text
                                             x={cx}
-                                            y={cy + 25}
-                                            className="fill-white/80 text-base font-semibold tracking-wide"
+                                            y={cy + 20}
+                                            className="fill-white/80 text-xs md:text-base font-semibold tracking-wide"
                                             textAnchor="middle"
                                             dominantBaseline="central"
                                         >

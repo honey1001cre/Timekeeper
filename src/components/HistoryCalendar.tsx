@@ -48,11 +48,17 @@ export const HistoryCalendar = ({ entries, selectedDate, onDateSelect }: History
                     selected={selectedDate}
                     onSelect={onDateSelect}
                     locale={ja}
-                    className="rounded-md border-none shadow-none p-0 mx-auto"
+                    className="rounded-md border-none shadow-none p-0 mx-auto w-full"
                     classNames={{
-                        day: "h-14 w-14 p-0 font-normal aria-selected:opacity-100 flex flex-col items-center justify-start py-1 relative",
+                        day: "h-10 w-10 md:h-14 md:w-14 p-0 font-normal aria-selected:opacity-100 flex flex-col items-center justify-start py-1 relative",
                         day_selected: "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground",
                         day_today: "bg-accent text-accent-foreground border-2 border-primary/20",
+                        months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
+                        month: "space-y-2 w-full",
+                        table: "w-full border-collapse",
+                        head_row: "flex w-full",
+                        head_cell: "text-muted-foreground rounded-md w-10 md:w-14 font-normal text-[0.7rem] md:text-[0.8rem]",
+                        row: "flex w-full mt-1",
                     }}
                     components={{
                         Day: (props) => {
@@ -66,13 +72,13 @@ export const HistoryCalendar = ({ entries, selectedDate, onDateSelect }: History
                             return (
                                 <div
                                     onClick={() => onDateSelect(dayDate)}
-                                    className={`h-14 w-14 flex flex-col items-center justify-between py-2 cursor-pointer transition-colors border border-primary/10 ${intensity} ${isSelected ? 'ring-2 ring-primary ring-inset' : ''} ${isOutside ? 'opacity-10 grayscale pointer-events-none' : 'hover:bg-white/10'}`}
+                                    className={`h-10 w-10 md:h-14 md:w-14 flex flex-col items-center justify-between py-1 md:py-2 cursor-pointer transition-colors border border-primary/10 ${intensity} ${isSelected ? 'ring-2 ring-primary ring-inset' : ''} ${isOutside ? 'opacity-10 grayscale pointer-events-none' : 'hover:bg-white/10'}`}
                                 >
-                                    <span className={`text-sm font-bold ${isOutside ? 'text-white/20' : 'text-white'}`}>
+                                    <span className={`text-xs md:text-sm font-bold ${isOutside ? 'text-white/20' : 'text-white'}`}>
                                         {format(dayDate, 'd')}
                                     </span>
                                     {total > 0 && (
-                                        <span className={`text-[11px] font-black drop-shadow-md ${isOutside ? 'text-white/10' : 'text-white'}`}>
+                                        <span className={`text-[8px] md:text-[11px] font-black drop-shadow-md ${isOutside ? 'text-white/10' : 'text-white'}`}>
                                             {formatDuration(total)}
                                         </span>
                                     )}
