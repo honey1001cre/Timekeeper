@@ -67,17 +67,31 @@ export const VisualTimer = ({
     return (
         <div className="relative w-full aspect-square max-w-[350px] md:max-w-[650px] mx-auto">
             <ResponsiveContainer width="100%" height="100%">
-                <PieChart margin={{ top: 10, right: 10, bottom: 10, left: 10 }}>
+                <PieChart margin={{ top: 30, right: 30, bottom: 30, left: 30 }}>
                     <Pie
                         data={data}
                         cx="50%"
                         cy="50%"
-                        innerRadius="70%"
-                        outerRadius="95%"
+                        innerRadius="65%"
+                        outerRadius="85%"
                         paddingAngle={3}
                         isAnimationActive={!isRunning || !isToday}
                         stroke="none"
-                        label={false}
+                        labelLine={{ stroke: 'rgba(255, 255, 255, 0.15)', strokeWidth: 1 }}
+                        label={({ name, x, y, textAnchor }) => {
+                            if (name === 'No Data') return null;
+                            return (
+                                <text
+                                    x={x}
+                                    y={y}
+                                    fill="white"
+                                    textAnchor={textAnchor}
+                                    className="text-[8px] md:text-[10px] font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
+                                >
+                                    {name}
+                                </text>
+                            );
+                        }}
                     >
                         {data.map((entry, index) => (
                             <Cell
