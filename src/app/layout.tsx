@@ -16,6 +16,16 @@ export const metadata: Metadata = {
   verification: {
     google: "YhHUOOIbJm3UpNgO9ffi2qW_5FW-zets9D-1a5106no",
   },
+  manifest: "/manifest.json",
+  icons: {
+    icon: "/icon-512.png",
+    apple: "/apple-touch-icon.png",
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Chronos",
+  },
 };
 
 export default function RootLayout({
