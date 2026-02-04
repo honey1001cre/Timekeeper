@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { Outfit, Noto_Sans_JP, Shippori_Mincho } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
-});
-
-const notoNS = Noto_Sans_JP({
-  variable: "--font-noto",
-  subsets: ["latin"],
-});
-
-const shipporiMincho = Shippori_Mincho({
-  weight: ["400", "700", "800"],
-  variable: "--font-shippori",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -35,9 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body
-        className={`${outfit.variable} ${notoNS.variable} ${shipporiMincho.variable} antialiased`}
-      >
+      <body className={`${outfit.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
