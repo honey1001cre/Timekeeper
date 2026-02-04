@@ -120,16 +120,16 @@ export const StatsDashboard = ({ entries }: StatsDashboardProps) => {
 
                         {/* Task breakdown - shown when expanded */}
                         {expandedCard === stat.id && stat.topTasks.length > 0 && (
-                            <div className="mt-3 pt-3 border-t border-white/10 space-y-1.5">
+                            <div className="mt-3 pt-3 border-t border-white/10 space-y-2 md:space-y-3">
                                 {stat.topTasks.map((task, index) => (
                                     <div
                                         key={task.name}
-                                        className="flex justify-between items-center text-[10px] md:text-xs"
+                                        className="flex justify-between items-center md:flex-col md:items-start text-[10px] md:text-xs"
                                     >
-                                        <span className="text-white/60 truncate max-w-[60%]">
+                                        <span className="text-white/60 truncate max-w-[60%] md:max-w-full">
                                             {index + 1}. {task.name}
                                         </span>
-                                        <span className="text-white/80 font-mono">
+                                        <span className="text-white/80 font-mono md:text-primary md:text-sm md:font-bold md:mt-0.5">
                                             {formatDuration(task.duration)}
                                         </span>
                                     </div>
