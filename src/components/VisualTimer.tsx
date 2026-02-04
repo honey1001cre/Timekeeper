@@ -78,7 +78,7 @@ export const VisualTimer = ({
                         isAnimationActive={!isRunning || !isToday}
                         stroke="none"
                         labelLine={{ stroke: 'rgba(255, 255, 255, 0.15)', strokeWidth: 1 }}
-                        label={({ name, x, y, textAnchor }) => {
+                        label={({ name, value, x, y, textAnchor }) => {
                             if (name === 'No Data') return null;
                             return (
                                 <text
@@ -88,7 +88,8 @@ export const VisualTimer = ({
                                     textAnchor={textAnchor}
                                     className="text-[8px] md:text-[10px] font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
                                 >
-                                    {name}
+                                    <tspan x={x} dy="-0.2em">{name}</tspan>
+                                    <tspan x={x} dy="1.2em" className="hidden md:inline opacity-50 font-mono">{formatDisplayTime(value)}</tspan>
                                 </text>
                             );
                         }}
